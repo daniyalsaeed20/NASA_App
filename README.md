@@ -1,17 +1,16 @@
 # picture_of_the_day
 
-A new Flutter project.
+This is a flutter project that makes use of APOD Api from Nasa to show users a list of images captured by NASA. The images are shown along with their names and dates on which they were taken. Upon tapping on an image, the user would then be presented with a new screen where they can view the enlarged image and read the description of the image.
 
-## Getting Started
+## Tools
 
-This project is a starting point for a Flutter application.
+1. Flutter (Channel stable, 3.22.2)
+2. Dart (Stable 3.4.3)
+3. VS Code (vs 1.91.0)
 
-A few resources to get you started if this is your first Flutter project:
+## Packages and info
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# NASA_App
+1. flutter_screenutil (5.5.4) : Used to create a responsive design accross all mobile devices (Currently in portrait view).
+2. sqflite (2.3.3+1) : Used to locally store data fetched from network so the app can be used to some extent in offline mode as well.
+3. flutter_bloc (8.1.1) : Used for state management of the application.
+4. equatable (2.0.5) : Assiting ###flutter_bloc
