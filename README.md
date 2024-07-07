@@ -14,3 +14,4 @@ This is a flutter project that makes use of APOD Api from Nasa to show users a l
 2. sqflite (2.3.3+1) : Used to locally store data fetched from network so the app can be used to some extent in offline mode as well.
 3. flutter_bloc (8.1.1) : Used for state management of the application.
 4. equatable (2.0.5) : Assiting ###flutter_bloc
+
