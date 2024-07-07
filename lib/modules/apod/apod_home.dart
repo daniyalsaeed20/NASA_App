@@ -15,7 +15,7 @@ import '../../widgets/apod_tile.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_loader.dart';
 import '../../widgets/search_bar/search_bar.dart';
-import 'bloc/apod_bloc.dart';
+import 'apod_bloc/apod_bloc.dart';
 
 class ApodHome extends StatelessWidget {
   const ApodHome({super.key});

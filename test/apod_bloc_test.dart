@@ -6,7 +6,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:picture_of_the_day/model/apod_model.dart';
-import 'package:picture_of_the_day/modules/apod/bloc/apod_bloc.dart';
+import 'package:picture_of_the_day/modules/apod/apod_bloc/apod_bloc.dart';
 import 'package:picture_of_the_day/repositories/local_storage_repository.dart';
 import 'package:picture_of_the_day/repositories/nasa_repository.dart';
 import 'package:picture_of_the_day/services/network_services.dart';
