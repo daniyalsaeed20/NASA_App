@@ -4,7 +4,11 @@ class ApodModel {
   final String explanation;
   final String url;
 
-  ApodModel({required this.date, required this.title, required this.explanation, required this.url});
+  ApodModel(
+      {required this.date,
+      required this.title,
+      required this.explanation,
+      required this.url});
 
   factory ApodModel.fromJson(Map<String, dynamic> json) {
     return ApodModel(
@@ -21,5 +25,14 @@ class ApodModel {
       'explanation': explanation,
       'url': url,
     };
+  }
+
+  factory ApodModel.empty() {
+    return ApodModel(
+      date: '',
+      title: '',
+      explanation: '',
+      url: '',
+    );
   }
 }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:picture_of_the_day/model/apod_model.dart';
 import 'package:picture_of_the_day/modules/apod/apod_details.dart';
+import 'package:picture_of_the_day/modules/apod/today_picture_cubit/today_picture_cubit.dart';
 import 'package:picture_of_the_day/repositories/local_storage_repository.dart';
 import 'package:picture_of_the_day/repositories/nasa_repository.dart';
 import 'package:picture_of_the_day/services/network_services.dart';
@@ -30,6 +33,14 @@ class ApodHome extends StatelessWidget {
           )..add(const ApodFetchEvent(count: 10)),
         ),
         BlocProvider(
+          create: (context) => TodayPictureCubit(
+            localStorageRepository:
+                RepositoryProvider.of<LocalStorageRepository>(context),
+            nasaRepository: RepositoryProvider.of<NasaRepository>(context),
+            networkServices: NetworkServices(),
+          )..fetchTodayPicture(),
+        ),
+        BlocProvider(
           create: (context) => SearchCubit(),
         ),
       ],
@@ -52,7 +63,6 @@ class _UiState extends State<Ui> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _scrollController = ScrollController()
       ..addListener(() {
@@ -63,9 +73,6 @@ class _UiState extends State<Ui> {
                   count: BlocProvider.of<ApodBloc>(context).state.count + 10));
         }
       });
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   Provider.of<ApodProvider>(context, listen: false).fetchApods();
-    // });
   }
 
   @override
@@ -142,6 +149,35 @@ class _UiState extends State<Ui> {
                             BlocProvider.of<SearchCubit>(context)
                                 .readSearchQuery(searchString: value!);
                             return;
+                          },
+                        ),
+                        BlocBuilder<TodayPictureCubit, TodayPictureState>(
+                          builder: (context, tpState) {
+                            return CustomButton(
+                                onPressed: tpState is TodayPictureFailedState
+                                    ? () {
+                                        Fluttertoast.showToast(
+                                          msg:
+                                              "Please fill in the required fields.",
+                                          toastLength: Toast.LENGTH_SHORT,
+                                          gravity: ToastGravity.CENTER,
+                                          timeInSecForIosWeb: 1,
+                                          backgroundColor: accentColor,
+                                          textColor: Colors.black,
+                                          fontSize: 16.1.sp,
+                                        );
+                                      }
+                                    : () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute<void>(
+                                            builder: (BuildContext context) =>
+                                                ApodDetails(
+                                              apodModel: tpState.todayPicture,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                text: 'Click to view today`s picture');
                           },
                         ),
                         Expanded(

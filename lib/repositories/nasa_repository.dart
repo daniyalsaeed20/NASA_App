@@ -22,7 +22,22 @@ class NasaRepository {
         return ResponseHandler.handleResponse(statusCode: response.statusCode);
       }
     } catch (e) {
-       return 'Failed to load APODs';
+      return 'Failed to load APODs';
+    }
+  }
+
+  fetchPod() async {
+    try {
+      final response = await _nasaServices.fetchPod();
+      if (response.statusCode == 200) {
+        dynamic data = json.decode(response.body);
+        ApodModel apodModel = ApodModel.fromJson(data);
+        return apodModel;
+      } else {
+        return ResponseHandler.handleResponse(statusCode: response.statusCode);
+      }
+    } catch (e) {
+      return 'Failed to load APOD';
     }
   }
 }
