@@ -43,6 +43,8 @@ dependencies:
   sqflite: ^2.3.3+1
 
 dev_dependencies:
+  bloc_test: ^9.0.3
+  mockito: ^5.0.17
   flutter_test:
     sdk: flutter
 

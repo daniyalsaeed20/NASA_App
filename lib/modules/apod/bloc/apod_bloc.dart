@@ -17,7 +17,7 @@ class ApodBloc extends Bloc<ApodEvent, ApodState> {
       : _nasaRepository = nasaRepository,
         _localStorageRepository = localStorageRepository,
         _networkServices = networkServices,
-        super(ApodInitial(apodList: [], count: 10)) {
+        super(const ApodInitial(apodList: [], count: 10)) {
     on<ApodFetchEvent>(_mapApodFetchEventToState);
     on<ApodFetchPaginationEvent>(_mapApodFetchPaginationEventToState);
   }
@@ -30,7 +30,7 @@ class ApodBloc extends Bloc<ApodEvent, ApodState> {
     try {
       emit(ApodLoadState(apodList: state.apodList, count: event._count));
       dynamic response;
-      response = await _networkServices.checkInternetConnection();
+      response = await _networkServices.checkInternetConnection(); // returns a future bool
       if (response) {
         response = await _nasaRepository.fetchApods(count: event._count);
       } else {
@@ -65,7 +65,7 @@ class ApodBloc extends Bloc<ApodEvent, ApodState> {
       emit(ApodLoadPaginationState(
           count: event._count, apodList: state.apodList));
       dynamic response;
-      response = await _networkServices.checkInternetConnection();
+      response = await _networkServices.checkInternetConnection(); // returns a future bool
       if (response) {
         response = await _nasaRepository.fetchApods(count: event._count);
       } else {
