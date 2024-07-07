@@ -111,9 +111,5 @@ This Flutter application displays the Astronomy Picture of the Day (APOD) from N
 Include relevant screenshots of your app here.
 
 # Contact
-Your Name  
-Your Email
-
-# License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
+Daniyal Saeed
+daniyal.saeed7829@gmail.com
