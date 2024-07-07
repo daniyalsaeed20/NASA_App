@@ -107,9 +107,6 @@ This Flutter application displays the Astronomy Picture of the Day (APOD) from N
 - **Repository Preparation**: Remove unnecessary files, add documentation, and commit final changes.
 - **Submission**: Compress the Git repository and submit it as required.
 
-# Screenshots
-Include relevant screenshots of your app here.
-
 # Contact
 **Daniyal Saeed**
 daniyal.saeed7829@gmail.com
