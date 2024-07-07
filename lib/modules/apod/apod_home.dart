@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:picture_of_the_day/model/apod_model.dart';
 import 'package:picture_of_the_day/modules/apod/apod_details.dart';
 import 'package:picture_of_the_day/modules/apod/today_picture_cubit/today_picture_cubit.dart';
 import 'package:picture_of_the_day/repositories/local_storage_repository.dart';
