@@ -111,5 +111,5 @@ This Flutter application displays the Astronomy Picture of the Day (APOD) from N
 Include relevant screenshots of your app here.
 
 # Contact
-Daniyal Saeed
+**Daniyal Saeed**
 daniyal.saeed7829@gmail.com
