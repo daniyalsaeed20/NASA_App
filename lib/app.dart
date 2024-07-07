@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, _) {
           return MaterialApp(
+            
             theme: themeData,
             title: 'Picture of the day',
             home: const HomeScreen(),
